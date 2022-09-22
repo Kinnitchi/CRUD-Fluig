@@ -1,0 +1,60 @@
+<html>
+
+<head>
+	<link type="text/css" rel="stylesheet" href="/style-guide/css/fluig-style-guide.min.css" />
+	<script type="text/javascript" src="/portal/resources/js/jquery/jquery.js"></script>
+	<script type="text/javascript" src="/portal/resources/js/jquery/jquery-ui.min.js"></script>
+	<script type="text/javascript" src="/portal/resources/js/mustache/mustache-min.js"></script>
+	<script type="text/javascript" src="/style-guide/js/fluig-style-guide.min.js" charset="utf-8"></script>
+	<script type="text/javascript" src="script.js"></script>
+</head>
+
+<body>
+	<div class="fluig-style-guide">
+		<form name="form" role="form">
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					<h3 class="panel-title">CRUD FLUIG</h3>
+				</div>
+				<div class="panel-body">
+					<div class="row form-group">
+						<div class="col-sm-4">
+							<label for="ZOOM_USER">Nome</label>
+							<input type="zoom" class="form-control" id="ZOOM_USER" name="ZOOM_USER" data-zoom="{
+												'displayKey':'colleagueName',
+												'datasetId':'colleague',
+												'maximumSelectionLength':'1',
+												'filterValues':'active:true',
+												'placeholder':'Escolha o usuário',
+												'fields':[
+														{
+															'field':'colleagueId',
+															'label':'ID'
+														},{
+															'field':'colleagueName',
+															'label':'Nome',
+															'standard':'true'
+														}
+												]
+											}">
+						</div>
+						<div class="col-sm-2">
+							<label for="AGE">Idade</label>
+							<input type="text" class="form-control" id="AGE" name="AGE" max="2">
+						</div>
+						<div class="col-sm-3">
+							<label for="BIRTHDATE">Data nascimento</label>
+							<input type="text" class="form-control" id="BIRTHDATE" name="BIRTHDATE">
+						</div>
+						<div class="col-sm-3">
+							<label for="EMAIL">E-mail</label>
+							<input type="text" class="form-control" id="EMAIL" name="EMAIL">
+						</div>
+					</div>
+				</div>
+			</div>
+		</form>
+	</div>
+</body>
+
+</html>
