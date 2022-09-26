@@ -8,6 +8,11 @@
 	<script type="text/javascript" src="/style-guide/js/fluig-style-guide.min.js" charset="utf-8"></script>
 	<script type="text/javascript" src="script.js"></script>
 </head>
+<style>
+	.select2-container--default .select2-search--inline .select2-search__field {
+		width: 100% !important;
+	}
+</style>
 
 <body>
 	<div class="fluig-style-guide">
@@ -18,38 +23,142 @@
 				</div>
 				<div class="panel-body">
 					<div class="row form-group">
-						<div class="col-sm-4">
-							<label for="ZOOM_USER">Nome</label>
-							<input type="zoom" class="form-control" id="ZOOM_USER" name="ZOOM_USER" data-zoom="{
-												'displayKey':'colleagueName',
-												'datasetId':'colleague',
-												'maximumSelectionLength':'1',
-												'filterValues':'active:true',
-												'placeholder':'Escolha o usuário',
-												'fields':[
-														{
-															'field':'colleagueId',
-															'label':'ID'
-														},{
-															'field':'colleagueName',
-															'label':'Nome',
-															'standard':'true'
-														}
-												]
-											}">
+						<div class="form-group">
+							<button type="button" class="btn btn-default"
+								onclick="addChild('TABLE_CRUD')">i18n.translate("add")</button>
 						</div>
-						<div class="col-sm-2">
-							<label for="AGE">Idade</label>
-							<input type="text" class="form-control" id="AGE" name="AGE" max="2">
+					</div>
+					<div class="row form-group" id="tabela" style="display: none;">
+
+						<div class="col-xs-12">
+							<!-- <h3>Referências comerciais</h3> -->
+
+							<div class="form-field table-responsive" data-type="tabledetail">
+								<table class="table table-condensed" tablename="TABLE_CRUD" id="TABLE_CRUD" noaddbutton="true"
+									nodeletebutton="false">
+									<thead>
+										<tr class="tableHeadRow">
+											<th class="tableColumn">i18n.translate("name")</th>
+											<th class="tableColumn">i18n.translate("age")</th>
+											<th class="tableColumn">i18n.translate("birthdate")</th>
+											<th class="tableColumn">i18n.translate("mail")</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+
+											<td class="col-xs-4">
+
+												<div class="form-group">
+													<input type="zoom" class="form-control" id="ZOOM_USER" name="ZOOM_USER" data-zoom="{
+														'displayKey':'colleagueName',
+														'datasetId':'colleague',
+														'maximumSelectionLength':'1',
+														'filterValues':'active:true',
+														'placeholder':'Escolha o usuário',
+														'fields':[
+																{
+																	'field':'colleagueId',
+																	'label':'ID'
+																},{
+																	'field':'mail',
+																	'visible':'false'
+																},{
+																	'field':'colleagueName',
+																	'label':'Nome',
+																	'standard':'true'
+																}
+														]
+													}">
+												</div>
+
+											</td>
+											<td class="col-xs-2">
+
+												<div class="form-group">
+													<input type="text" class="form-control" id="AGE" name="AGE" maxlength="2" value="0"
+														oninput="this.value = parseInt(this.value != '' ? this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1') : 0);">
+												</div>
+
+											</td>
+											<td class="col-xs-2">
+
+												<div class="form-group">
+													<input type="text" class="form-control" id="BIRTHDATE" name="BIRTHDATE">
+												</div>
+
+											</td>
+											<td class="col-xs-4">
+
+												<div class="form-group">
+													<input type="text" class="form-control" id="EMAIL" name="EMAIL">
+												</div>
+
+											</td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+
+
 						</div>
-						<div class="col-sm-3">
-							<label for="BIRTHDATE">Data nascimento</label>
-							<input type="text" class="form-control" id="BIRTHDATE" name="BIRTHDATE">
-						</div>
-						<div class="col-sm-3">
-							<label for="EMAIL">E-mail</label>
-							<input type="text" class="form-control" id="EMAIL" name="EMAIL">
-						</div>
+
+						<!-- <div class="table-responsive">
+							<table class="table table-condensed" tablename="TABLE_CRUD" noaddbutton="true" nodeletebutton="false" add>
+								<thead>
+									<tr>
+										<th>Nome</th>
+										<th>Idade</th>
+										<th>Data nascimento</th>
+										<th>E-mail</th>
+									</tr>
+								</thead>
+								<tr>
+									<td class="col-sm-4">
+										<div class="form-group">
+											<input type="zoom" class="form-control" id="ZOOM_USER" name="ZOOM_USER" data-zoom="{
+													'displayKey':'colleagueName',
+													'datasetId':'colleague',
+													'maximumSelectionLength':'1',
+													'filterValues':'active:true',
+													'placeholder':'Escolha o usuário',
+													'fields':[
+															{
+																'field':'colleagueId',
+																'label':'ID'
+															},{
+																'field':'mail',
+																'visible':'false'
+															},{
+																'field':'colleagueName',
+																'label':'Nome',
+																'standard':'true'
+															}
+													]
+												}">
+										</div>
+									</td>
+									<td class="col-sm-2">
+										<div class="form-group">
+											<input type="text" class="form-control" id="AGE" name="AGE" maxlength="2" value="0"
+												oninput="this.value = parseInt(this.value != '' ? this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1') : 0);">
+										</div>
+									</td>
+									<td class="col-sm-2">
+										<div class="form-group">
+											<input type="text" class="form-control" id="BIRTHDATE" name="BIRTHDATE">
+										</div>
+									</td>
+									<td class="col-sm-4">
+										<div class="form-group">
+											<input type="text" class="form-control" id="EMAIL" name="EMAIL">
+										</div>
+									</td>
+								</tr>
+
+							</table>
+						</div> -->
+
 					</div>
 				</div>
 			</div>
